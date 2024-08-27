@@ -1,0 +1,64 @@
+Crawler:
+  type: enum
+  tech level: int
+  upkeep: int
+  remaining_upgrade_cost: int
+  structure points: int
+
+  n Lances:
+    n Mechs:
+  n Bays:
+  1 Storage:
+    n Scrap:
+      tech level: int
+    n Mech Parts:
+      type: enum
+      name: string
+      tech level: int
+      salvage value: int
+      ability: string
+      n Keywords:
+        name: string
+        description: string
+  1 Armoury:
+    n Pilot Equipment:
+      tech level: int
+      name: string
+      n Keywords:
+        name: string
+        description: string
+      description: string
+
+Mech:
+  structure points: int
+  energy points: int
+  heat capacity: int
+  salvage value sum: int
+  1 Chassis:
+    name: string
+    structure points: int
+    energy points: int
+    heat capacity: int
+    system slots: int
+    module slots: int
+    tech level: int
+    salvage value: int
+    ability: string
+  n Systems:
+    name: string
+    tech level: int
+    size: int
+    salvage value: int
+    ability: string
+    n Keywords:
+      name: string
+      description: string
+  n Modules:
+    name: string
+    tech level: int
+    size: int
+    salvage value: int
+    ability: string
+    n Keywords:
+      name: string
+      description: string
