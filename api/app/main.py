@@ -1,12 +1,25 @@
 import uvicorn
 from fastapi import FastAPI, Request
 from typing import List, Optional
+import sqlite3
+con = sqlite3.connect("Session.db")
+cur = con.cursor()
 
 app = FastAPI()
 
 
-@app.get("/hello")
+def initDatabase():
+    pass
+
+@app.get("/init")
 def read_root():
+    cur.execute("CREATE TABLE Crawler(type, tech_level, upkeep, remaining_upgrade_cost, structure_points, lance_id, bay_id, storage_id, armoury_id)")
+    cur.execute("CREATE TABLE Lance(lance_id, mach_id)")
+    cur.execute("CREATE TABLE Mech(mach_id, structure_points, energy_points, heat_capacity, salvage_vaue_sum, chassis_id, system_id, module_id)")
+    cur.execute("CREATE TABLE Storage(storage_id, scrap_id, mech_parts_id)")
+    cur.execute("CREATE TABLE Scrap(scrap_id, tech_level)")
+    cur.execute("CREATE TABLE (type, tech_level, upkeep, remaining_upgrade_cost, structure_points, lance_id, bay_id, storage_id, armoury_id)")
+
     return {"Hello": "World"}
 
 
